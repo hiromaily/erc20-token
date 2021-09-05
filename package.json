@@ -15,7 +15,8 @@
     "test-all": "truffle test --debug",
     "test-token": "truffle test --debug test/testToken.test.js",
     "debug": "truffle debug",
-    "all": "truffle compile; truffle migrate --reset"
+    "all": "truffle compile; truffle migrate --reset",
+    "web3": "node src/web3.js"
   },
   "devDependencies": {
     "prettier": "^2.3.2",
