@@ -1,0 +1,29 @@
+{
+  "name": "erc20-token",
+  "version": "1.0.0",
+  "description": "erc20 token",
+  "main": "index.js",
+  "repository": "git@github.com:hiromaily/erc20-token.git",
+  "author": "HirokiYasui <hiromaily2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "fmt": "prettier --write '{contracts,migrations,test}/**/*.{sol,js}'",
+    "lint": "solhint --fix contracts/**/*.sol",
+    "lint-js": "eslint --fix test/**/*.js",
+    "build": "truffle compile",
+    "deploy": "truffle migrate --reset",
+    "test-all": "truffle test --debug",
+    "test-token": "truffle test --debug test/testToken.test.js",
+    "debug": "truffle debug",
+    "all": "truffle compile; truffle migrate --reset"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.17",
+    "solhint": "^3.3.6"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.1",
+    "web3": "^1.5.2"
+  }
+}
