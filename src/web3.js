@@ -7,14 +7,14 @@ const conAddress = '0x014C2061ba81a6Da4b8dD32b1322598D99B711D0';
 
 const contract = new web3.eth.Contract(contractAbi, conAddress);
 
-const callUpdateCounter = async (owner, param) => {
-  const txObject = {
-    from: owner,
-    to: conAddress,
-    data: contract.methods.updateCounter(param).encodeABI(),
-  };
-  return await web3.eth.sendTransaction(txObject);
-};
+// const callUpdateCounter = async (owner, param) => {
+//   const txObject = {
+//     from: owner,
+//     to: conAddress,
+//     data: contract.methods.updateCounter(param).encodeABI(),
+//   };
+//   return await web3.eth.sendTransaction(txObject);
+// };
 
 const callBalanceOf = async (owner, param) => {
   const txObject = {

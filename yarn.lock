@@ -4155,7 +4155,7 @@ web3-core-subscriptions@1.5.2:
     eventemitter3 "4.0.4"
     web3-core-helpers "1.5.2"
 
-web3-core@1.5.2:
+web3-core@1.5.2, web3-core@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/web3-core/-/web3-core-1.5.2.tgz#ca2b9b1ed3cf84d48b31c9bb91f7628f97cfdcd5"
   integrity sha512-sebMpQbg3kbh3vHUbHrlKGKOxDWqjgt8KatmTBsTAWj/HwWYVDzeX+2Q84+swNYsm2DrTBVFlqTErFUwPBvyaA==
@@ -4193,7 +4193,7 @@ web3-eth-accounts@1.5.2:
     web3-core-method "1.5.2"
     web3-utils "1.5.2"
 
-web3-eth-contract@1.5.2:
+web3-eth-contract@1.5.2, web3-eth-contract@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/web3-eth-contract/-/web3-eth-contract-1.5.2.tgz#ffbd799fd01e36596aaadefba323e24a98a23c2f"
   integrity sha512-4B8X/IPFxZCTmtENpdWXtyw5fskf2muyc3Jm5brBQRb4H3lVh1/ZyQy7vOIkdphyaXu4m8hBLHzeyKkd37mOUg==
@@ -4303,7 +4303,7 @@ web3-shh@1.5.2:
     web3-core-subscriptions "1.5.2"
     web3-net "1.5.2"
 
-web3-utils@1.5.2:
+web3-utils@1.5.2, web3-utils@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/web3-utils/-/web3-utils-1.5.2.tgz#150982dcb1918ffc54eba87528e28f009ebc03aa"
   integrity sha512-quTtTeQJHYSxAwIBOCGEcQtqdVcFWX6mCFNoqnp+mRbq+Hxbs8CGgO/6oqfBx4OvxIOfCpgJWYVHswRXnbEu9Q==
