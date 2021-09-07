@@ -4,7 +4,7 @@ module.exports = async (deployer, _network, accounts) => {
   const deployAndMinter = accounts[0];
   await deployer.deploy(HyToken);
   const hyToken = await HyToken.deployed();
-  await hyToken.mint(deployAndMinter, 10000, { from: deployAndMinter });  
+  await hyToken.mint(deployAndMinter, 10000, { from: deployAndMinter });
 };
 // 2_all_contracts.js
 // ==================
@@ -22,7 +22,6 @@ module.exports = async (deployer, _network, accounts) => {
 //    > gas price:           20 gwei
 //    > value sent:          0 ETH
 //    > total cost:          0.0453995 ETH
-
 
 //    > Saving migration to chain.
 //    > Saving artifacts

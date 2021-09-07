@@ -2,26 +2,34 @@
   "name": "erc20-token",
   "version": "1.0.0",
   "description": "erc20 token",
-  "main": "index.js",
-  "repository": "git@github.com:hiromaily/erc20-token.git",
-  "author": "HirokiYasui <hiromaily2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "fmt": "prettier --write '{contracts,migrations,test}/**/*.{sol,js}'",
+    "fmt": "prettier --write '{contracts,migrations,src,test}/**/*.{sol,ts,js}'",
     "lint": "solhint --fix contracts/**/*.sol",
-    "lint-js": "eslint --fix test/**/*.js",
+    "lint-js": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "build": "truffle compile",
     "deploy": "truffle migrate --reset",
     "test-all": "truffle test --debug",
     "test-token": "truffle test --debug test/testToken.test.js",
     "debug": "truffle debug",
     "all": "truffle compile; truffle migrate --reset",
-    "web3": "node src/web3.js"
+    "web3": "node src/web3.js",
+    "web3ts": "ts-node src/web3.ts"
   },
   "devDependencies": {
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-compat": "^3.13.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.17",
-    "solhint": "^3.3.6"
+    "solhint": "^3.3.6",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.1",
