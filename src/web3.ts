@@ -18,7 +18,7 @@ const callUpdateCounter = async (
   const txObject: TransactionConfig = {
     from: owner,
     to: conAddress,
-    data: contract.methods.updateCounter(count).encodeABI() as string, // eslint-disable-line no-unsafe-member-access,no-unsafe-call
+    data: contract.methods.updateCounter(count).encodeABI() as string,
   } as TransactionConfig;
   return await web3.eth.sendTransaction(txObject);
 };
@@ -30,7 +30,7 @@ const callBalanceOf = async (
   const txObject: TransactionConfig = {
     from: owner,
     to: conAddress,
-    data: contract.methods.balanceOf(account).encodeABI() as string, // eslint-disable-line:no-unlimited-disable
+    data: contract.methods.balanceOf(account).encodeABI() as string,
   } as TransactionConfig;
   return await web3.eth.call(txObject);
 };
