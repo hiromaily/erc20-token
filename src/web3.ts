@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { TransactionReceipt, TransactionConfig } from 'web3-core';
 import { AbiItem } from 'web3-utils';
 import { Contract } from 'web3-eth-contract';
-import { HyToken } from '../build/contracts/HyToken.json';
+import HyToken  from '../build/contracts/HyToken.json';
 
 const web3: Web3 = new Web3('http://127.0.0.1:7545');
 web3.eth.handleRevert = true;
