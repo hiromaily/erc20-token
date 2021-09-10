@@ -42,8 +42,8 @@ const main = async (): Promise<void> => {
     console.log(`command: ${process.argv[2]}`);
     switch (process.argv[2]) {
       case 'balance': {
-        const txHash: string = await callBalanceOf(owner, owner);
-        console.log(`tx hash: ${txHash}`);
+        const hexBalance: string = await callBalanceOf(owner, owner);
+        console.log(`balance: ${parseInt(hexBalance, 16)}`);
         break;
       }
       case 'update':
@@ -63,4 +63,3 @@ if (process.argv.length != 3) {
 } else {
   void main();
 }
-console.log(process.argv);
