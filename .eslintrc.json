@@ -21,9 +21,21 @@
   "rules": {
     "no-extra-semi": "warn",
     "no-undef": "warn",
-    "quotes": ["warn", "single"],
+    "quotes": ["error", "single"],
     "prefer-const": "warn",
-    "space-before-blocks": ["warn", { "functions": "always" }]
+    "space-before-blocks": ["warn", { "functions": "always" }],
+    "semi": ["error", "always"],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "no-console": "off",
+    "no-var": "error",
+    "dot-notation": "error",
+    "no-tabs": "error",
+    "no-trailing-spaces": "error",
+    "no-use-before-define": "error",
+    "no-useless-call": "error",
+    "no-with": "error",
+    "operator-linebreak": "error",
+    "quote-props": ["error", "as-needed"]
   },
   "overrides": [
     {
@@ -46,7 +58,8 @@
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-unsafe-return": "off"    
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/no-unused-vars": "error"    
       }
     }
   ]  
