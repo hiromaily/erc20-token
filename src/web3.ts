@@ -1,6 +1,6 @@
 import Web3 from 'web3';
-import { TransactionConfig } from 'web3-core';
-//import { TransactionReceipt, TransactionConfig } from 'web3-core';
+//import { TransactionConfig } from 'web3-core';
+import { TransactionReceipt, TransactionConfig } from 'web3-core';
 import { AbiItem } from 'web3-utils';
 import { Contract } from 'web3-eth-contract';
 import HyToken from '../build/contracts/HyToken.json';
@@ -12,17 +12,18 @@ const contractAbi: AbiItem[] = HyToken.abi as AbiItem[];
 const conAddress = '0x014C2061ba81a6Da4b8dD32b1322598D99B711D0';
 const contract: Contract = new web3.eth.Contract(contractAbi, conAddress);
 
-// const callUpdateCounter = async (
-//   owner: string,
-//   count: number
-// ): Promise<TransactionReceipt> => {
-//   const txObject: TransactionConfig = {
-//     from: owner,
-//     to: conAddress,
-//     data: contract.methods.updateCounter(count).encodeABI() as string,
-//   } as TransactionConfig;
-//   return await web3.eth.sendTransaction(txObject);
-// };
+const callTransfer = async (
+  from: string,
+  to: string,
+  amount: number
+): Promise<TransactionReceipt> => {
+  const txObject: TransactionConfig = {
+    from: from,
+    to: conAddress,
+    data: contract.methods.transfer(to, amount).encodeABI() as string,
+  } as TransactionConfig;
+  return await web3.eth.sendTransaction(txObject);
+};
 
 const callBalanceOf = async (
   owner: string,
@@ -42,14 +43,36 @@ const main = async (): Promise<void> => {
     console.log(`command: ${process.argv[2]}`);
     switch (process.argv[2]) {
       case 'balance': {
-        const hexBalance: string = await callBalanceOf(owner, owner);
+        // validate args
+        if (process.argv.length != 4 || process.argv[3] == '') {
+          console.error('4th args for target address is required');
+          break;
+        }
+        const targetAddr: string = process.argv[3];
+        const hexBalance: string = await callBalanceOf(owner, targetAddr);
         console.log(`balance: ${parseInt(hexBalance, 16)}`);
         break;
       }
-      case 'update':
-        console.log('update');
-        //const txHash = await callUpdateCounter(owner, 1);
+      case 'transfer': {
+        // validate args
+        if (
+          process.argv.length != 5 ||
+          process.argv[3] == '' ||
+          process.argv[4] == ''
+        ) {
+          console.error(
+            '4th args for target address and 5th args for amount is required'
+          );
+          break;
+        }
+        const resultJSON = await callTransfer(
+          owner,
+          process.argv[3],
+          Number(process.argv[4])
+        );
+        console.log('result:', resultJSON);
         break;
+      }
     }
   } catch (e) {
     console.log('error in main: ', e);
@@ -58,8 +81,8 @@ const main = async (): Promise<void> => {
   //when calling callReturnParam()
   //Error: Error: Returned error: execution reverted
 };
-if (process.argv.length != 3) {
-  console.error('run with parameter: balance, ');
+if (process.argv.length < 3) {
+  console.error('run with parameter: [balance, transfer]');
 } else {
   void main();
 }
