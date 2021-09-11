@@ -1,8 +1,25 @@
 # ERC20-Token
 
-erc20 token
+erc20 token `HYT`
 
-## Initial settings
+## Deploy to testnet using Geth client
+
+1. generate address/private key on Geth for token manager who can deploy contract and mint token
+2. run geth with token manager address
+
+```
+geth --goerli --rpc --rpcaddr 0.0.0.0 --rpcapi admin,debug,web3,eth,txpool,net,personal --unlock 0xXXXXXXXXXXXXXXXX --password pw --allow-insecure-unlock
+```
+
+3. deploy contract
+
+- token manager address is required in `migrations/2_all_contracts.js` before running
+
+```
+truffle migrate --network geth --reset
+```
+
+## Initial settings for development
 
 ```
 ## install
@@ -35,7 +52,7 @@ truffle create contract HyToken
 truffle create test testHyToken
 ```
 
-## Requirements
+## Requirements for development
 
 - [Ganache](https://www.trufflesuite.com/ganache)
 - [truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)

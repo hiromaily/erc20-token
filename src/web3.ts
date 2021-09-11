@@ -12,6 +12,18 @@ const contractAbi: AbiItem[] = HyToken.abi as AbiItem[];
 const conAddress = '0x014C2061ba81a6Da4b8dD32b1322598D99B711D0';
 const contract: Contract = new web3.eth.Contract(contractAbi, conAddress);
 
+const callBalanceOf = async (
+  owner: string,
+  account: string
+): Promise<string> => {
+  const txObject: TransactionConfig = {
+    from: owner,
+    to: conAddress,
+    data: contract.methods.balanceOf(account).encodeABI() as string,
+  } as TransactionConfig;
+  return await web3.eth.call(txObject);
+};
+  
 const callTransfer = async (
   from: string,
   to: string,
@@ -25,17 +37,19 @@ const callTransfer = async (
   return await web3.eth.sendTransaction(txObject);
 };
 
-const callBalanceOf = async (
-  owner: string,
-  account: string
-): Promise<string> => {
-  const txObject: TransactionConfig = {
-    from: owner,
-    to: conAddress,
-    data: contract.methods.balanceOf(account).encodeABI() as string,
-  } as TransactionConfig;
-  return await web3.eth.call(txObject);
-};
+// WIP
+// const callTransferFrom = async (
+//   from: string,
+//   to: string,
+//   amount: number
+// ): Promise<TransactionReceipt> => {
+//   const txObject: TransactionConfig = {
+//     from: from,
+//     to: conAddress,
+//     data: contract.methods.transferFrom(from, to, amount).encodeABI() as string,
+//   } as TransactionConfig;
+//   return await web3.eth.sendTransaction(txObject);
+// };
 
 const main = async (): Promise<void> => {
   const owner = '0xd0446b3eD62f23815bE724C17e34C0617A186e34';

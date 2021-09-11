@@ -1,7 +1,7 @@
 const HyToken = artifacts.require('HyToken');
 
 module.exports = async (deployer, _network, accounts) => {
-  const deployAndMinter = accounts[0];
+  const deployAndMinter = accounts[0]; //TODO: when using geth, change address
   await deployer.deploy(HyToken);
   const hyToken = await HyToken.deployed();
   await hyToken.mint(deployAndMinter, 10000, { from: deployAndMinter });
