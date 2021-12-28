@@ -9,7 +9,7 @@
     "lint-js": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "build": "truffle compile",
     "deploy": "truffle migrate --reset",
-    "deploy-geth": "truffle migrate --network geth --reset",
+    "deploy-dev2": "truffle migrate --network dev2 --reset",
     "test-all": "truffle test --debug",
     "test-token": "truffle test --debug test/testToken.test.js",
     "debug": "truffle debug",
