@@ -15,8 +15,8 @@
     "debug": "truffle debug",
     "all": "truffle compile; truffle migrate --reset",
     "web3": "node src/web3.js",
-    "web3ts-balance": "ts-node src/web3.ts balance 0xd0446b3eD62f23815bE724C17e34C0617A186e34",
-    "web3ts-transfer": "ts-node src/web3.ts transfer 0xfbA98CA8476a8b4ee11eb7AF98E0967E9151B4A0 100"
+    "web3ts-balance": "ts-node src/web3.ts --mode balance --address 0xd0446b3eD62f23815bE724C17e34C0617A186e34",
+    "web3ts-transfer": "ts-node src/web3.ts --mode transfer --address 0xfbA98CA8476a8b4ee11eb7AF98E0967E9151B4A0 --amount 100"
   },
   "devDependencies": {
     "@types/node": "^16.7.10",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.1",
+    "commander": "^8.3.0",
     "web3": "^1.5.2",
     "web3-core": "^1.5.2",
     "web3-eth-contract": "^1.5.2",

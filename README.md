@@ -16,7 +16,19 @@ geth --goerli --rpc --rpcaddr 0.0.0.0 --rpcapi admin,debug,web3,eth,txpool,net,p
 - token manager address is required in `migrations/2_all_contracts.js` before running
 
 ```
-truffle migrate --network geth --reset
+truffle migrate --network deploy-dev2 --reset
+```
+
+4. mint token to address
+
+- environment variable `NODE_URL`, `CONTRACT_ADDRESS`, `OWNER_ADDRESS` are required. see `.envrc`.
+
+```
+# blance
+yarn ts-node src/web3.ts --mode balance --address 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# transfer
+yarn ts-node src/web3.ts --mode transfer --address 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --amount 100
 ```
 
 ## Initial settings for development
