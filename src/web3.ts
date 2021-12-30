@@ -85,6 +85,10 @@ const main = async (): Promise<void> => {
         console.log('result:', resultJSON);
         break;
       }
+      case 'estimateGas': {
+        const gas = await erc20.callEstimateGas(args.ownerAddr);
+        console.log(gas);
+      }
     }
   } catch (e) {
     console.error(e);

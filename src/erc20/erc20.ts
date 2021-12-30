@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+import abi from 'ethereumjs-abi';
 //import { TransactionConfig } from 'web3-core';
 import { TransactionReceipt, TransactionConfig } from 'web3-core';
 import { AbiItem } from 'web3-utils';
@@ -59,5 +60,22 @@ export class ERC20 {
         .encodeABI() as string,
     } as TransactionConfig;
     return await this._web3.eth.sendTransaction(txObject);
+  }
+
+  // just temporary implementation because golang cli doesn't work...
+  public async callEstimateGas(from: string): Promise<number> {
+    const encodedData: string =
+      '0x' +
+      abi
+        .simpleEncode('transfer(address,uint256)', this._contractAddr, 100)
+        .toString('hex');
+
+    const txObject: TransactionConfig = {
+      from: from,
+      to: this._contractAddr,
+      data: encodedData,
+    } as TransactionConfig;
+    const gas = await this._web3.eth.estimateGas(txObject);
+    return gas;
   }
 }
